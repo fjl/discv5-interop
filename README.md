@@ -30,7 +30,7 @@ Now run the Go client and copy its ENR from the output:
 
 Then run the Nim client, making it connect to the Go client:
 
-    vagrant ssh nim -- bin/run.sh --bootnode <go-ENR>
+    vagrant ssh nim -- bin/run.sh --bootnode:<go-ENR>
 
 ### Running the test suite
 
