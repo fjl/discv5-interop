@@ -9,9 +9,11 @@ sudo apk add gcc musl-dev git make rust cargo
 repo=sigp/discv5
 branch=version-5.1
 if [ ! -d discv5 ]; then
-   git clone --branch "$branch" "https://github.com/$repo"
+    git clone --branch "$branch" "https://github.com/$repo"
+else
+    ( cd discv5; git pull )
 fi
-cd discv5
 
 # build it
+cd discv5
 cargo build --example simple_server

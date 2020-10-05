@@ -7,11 +7,14 @@ sudo apk add gcc musl-dev make git py-virtualenv python3-dev libffi-dev cargo
 repo=pipermerriam/ddht
 branch=piper/v51-spec-update
 if [ ! -d ddht ]; then
-   git clone --branch "$branch" "https://github.com/$repo"
+    git clone --branch "$branch" "https://github.com/$repo"
+else
+    ( cd ddht; git pull )
 fi
-cd ddht
 
 # build it
+cd ddht
 virtualenv -p python3 venv
 . venv/bin/activate
+pip install --upgrade pip
 pip install -e .[dev]

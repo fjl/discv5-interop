@@ -34,11 +34,13 @@ sudo apk add gcc musl-dev make git
 repo=status-im/nim-eth
 branch=discv5-v1
 if [ ! -d nim-eth ]; then
-   git clone --branch "$branch" "https://github.com/$repo"
+    git clone --branch "$branch" "https://github.com/$repo"
+else
+    ( cd nim-eth; git pull )
 fi
-cd nim-eth
 
 # build it
+cd nim-eth
 nimble install -y
 nim c -d:chronicles_log_level:trace -d:release -d:UseDiscv51:true --threads:on eth/p2p/discoveryv5/dcli
 
