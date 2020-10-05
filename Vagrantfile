@@ -19,8 +19,10 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "python" do |config|
+    config.vm.box = "generic/ubuntu2004" # build doesn't work on alpine
     config.vm.hostname = "discv5-python.box"
     config.vm.provision "shell", path: "python/setup.sh", privileged: false
+    config.vm.provision "file", source: "python/run.sh", destination: "$HOME/bin/run.sh"
     config.vm.network :private_network, ip: "192.168.3.41", hostname: true
   end
 
