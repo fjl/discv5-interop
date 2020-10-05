@@ -6,9 +6,12 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", path: "go/setup.sh", privileged: false
     config.vm.provision "file", source: "go/run.sh", destination: "$HOME/bin/run.sh"
     config.vm.provision "file", source: "go/test.sh", destination: "$HOME/bin/test.sh"
-    # needs two IPs to run test suite
     config.vm.network :private_network, ip: "192.168.3.21", hostname: true
-    config.vm.network :private_network, ip: "192.168.4.21"
+    # needs two IPs to run test suite
+    config.vm.network :private_network, ip: "192.168.4.21", auto_config: false
+    config.vm.provision "shell",
+      run: "always",
+      inline: "ifconfig eth2 192.168.4.21 netmask 255.255.255.0 up"
   end
 
   config.vm.define "nim" do |config|
