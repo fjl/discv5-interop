@@ -13,7 +13,11 @@ At this time, the supported client implementations are
 Each client implementation has its own VM. The 'provisioning' step of the VM builds the
 client from source and installs a wrapper script for configuring and running it.
 
-### Creating client networks
+The Vagrantfile assigns a unique static IP address to each client VM. The VMs can talk to
+each other and to the host. All client IPs are on the 192.168.3.1/24 network. The host is
+192.168.3.1.
+
+### Creating client test networks
 
 For example, to run `go` and `nim` against each other, you first need to bring up their VMs.
 
@@ -30,7 +34,9 @@ Then run the Nim client, making it connect to the Go client:
 
 ### Running the test suite
 
-The `go` client has an additional script for running the black-box
-test suite.
+The `go` client has an additional script for running the black-box test suite.
 
     vagrant ssh go -- bin/test.sh <ENR>
+
+You can also use this against a client implementation running on the host, just make sure
+to set your listening address to 192.168.3.1.
