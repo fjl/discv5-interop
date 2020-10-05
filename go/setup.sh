@@ -12,7 +12,7 @@ if [ ! -d go-ethereum ]; then
     git clone --branch "$branch" "https://github.com/$repo"
 else
     ( cd go-ethereum; git pull )
-end
+fi
 
 # build it
 cd go-ethereum

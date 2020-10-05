@@ -7,8 +7,8 @@ Vagrant.configure("2") do |config|
     config.vm.provision "file", source: "go/run.sh", destination: "$HOME/bin/run.sh"
     config.vm.provision "file", source: "go/test.sh", destination: "$HOME/bin/test.sh"
     # needs two IPs to run test suite
-    config.vm.network :private_network, ip: "192.168.3.22", hostname: true
-    config.vm.network :private_network, ip: "192.168.3.23"
+    config.vm.network :private_network, ip: "192.168.3.21", hostname: true
+    config.vm.network :private_network, ip: "192.168.4.21"
   end
 
   config.vm.define "nim" do |config|
