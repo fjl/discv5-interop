@@ -2,7 +2,7 @@ set -e
 
 # install C compiler and other build tools
 sudo apt-get update
-sudo apt-get install -y gcc libc-dev make pkg-config git virtualenv python3-dev libffi-dev rustc cargo
+sudo apt-get install -y gcc libc-dev make pkg-config git virtualenv python3-dev libffi-dev rustc cargo net-tools
 
 # clone py discv5
 repo=ethereum/ddht
