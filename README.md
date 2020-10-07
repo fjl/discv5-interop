@@ -9,6 +9,7 @@ At this time, the supported client implementations are
 - `nim`: https://github.com/status-im/nim-eth
 - `python`: https://github.com/ethereum/ddht
 - `rust`: https://github.com/sigp/discv5
+- `java`: https://github.com/PegaSysEng/discovery
 
 Each client implementation has its own VM. The 'provisioning' step of the VM builds the
 client from source and installs a wrapper script for configuring and running it.

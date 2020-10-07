@@ -35,4 +35,13 @@ Vagrant.configure("2") do |config|
     config.vm.network :private_network, ip: "192.168.3.51"
     config.vm.provision "shell", run: "always", inline: "route add -net 192.168.4.0/24 eth1"
   end
+
+  config.vm.define "java" do |config|
+    config.vm.box = "generic/ubuntu2004" # build doesn't work on alpine
+    config.vm.hostname = "discv5-java.box"
+    config.vm.provision "shell", path: "java/setup.sh", privileged: false
+    config.vm.provision "file", source: "java/run.sh", destination: "$HOME/bin/run.sh"
+    config.vm.network :private_network, ip: "192.168.3.61"
+    config.vm.provision "shell", run: "always", inline: "route add -net 192.168.4.0/24 eth1"
+  end
 end
