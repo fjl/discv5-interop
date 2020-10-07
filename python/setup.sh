@@ -5,8 +5,8 @@ sudo apt-get update
 sudo apt-get install -y gcc libc-dev make pkg-config git virtualenv python3-dev libffi-dev rustc cargo
 
 # clone py discv5
-repo=pipermerriam/ddht
-branch=piper/v51-spec-update
+repo=ethereum/ddht
+branch=master
 if [ ! -d ddht ]; then
     git clone --branch "$branch" "https://github.com/$repo"
 else
