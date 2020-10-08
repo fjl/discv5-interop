@@ -33,7 +33,7 @@ Then run the Nim client, making it connect to the Go client:
 
     vagrant ssh nim -- bin/run.sh -b <go-ENR>
 
-All client launcher scripts support the `-p` (port) and `-b` bootnode flags.
+All client launcher scripts support the `-p` (port) and `-b` (bootnode) flags.
 
 ### Running the test suite
 
