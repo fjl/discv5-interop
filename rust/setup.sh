@@ -16,4 +16,4 @@ fi
 
 # build it
 cd discv5
-cargo build --example simple_server
+cargo build --example find_nodes
