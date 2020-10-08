@@ -2,6 +2,9 @@ route_cmd = "route add -net 192.168.4.0/24 eth1 || true"
 eth2_configure_cmd = "ifconfig eth2 192.168.4.21 netmask 255.255.255.0 up"
 
 Vagrant.configure("2") do |config|
+  config.vm.provider "virtualbox" do |p|
+    p.check_guest_additions = false
+  end
   config.vm.box = "generic/alpine312"
 
   config.vm.define "go" do |config|
