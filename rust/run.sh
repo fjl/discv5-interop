@@ -21,4 +21,4 @@ do
 done
 
 export RUST_LOG=discv5=debug
-exec ~vagrant/discv5/target/debug/examples/find_nodes 192.168.3.51 $port true $bootnode
+exec ~vagrant/discv5/target/debug/examples/simple_server 192.168.3.51 $port $bootnode
